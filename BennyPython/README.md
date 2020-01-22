@@ -14,6 +14,5 @@ _1/22/20_
 
 First Log entry! Woohoo!
 
-Forked and cloned git repository. Ready to start work on writing the LISP interpreter at step 0: REPL (read, evaluate, print)
-
-STEP 0: 
+Forked and cloned git repository. Ready to start work on writing the LISP interpreter at step 0: REPL (read, evaluate, print). Finished step0
+along with the optional command history part.
