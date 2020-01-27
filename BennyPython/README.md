@@ -14,5 +14,15 @@ _1/22/20_
 
 First Log entry! Woohoo!
 
-Forked and cloned git repository. Ready to start work on writing the LISP interpreter at step 0: REPL (read, evaluate, print). Finished step0
+Forked and cloned git repository. Ready to start work on writing the LISP interpreter at step 0: REPL (read, evaluate, print).
+
+Finished step0
 along with the optional command history part.
+
+_1/23/20_
+
+Start work on step1
+
+step1 symbols work. Lists do not work at the moment.
+
+it is 3pm and Lists now work! I spent over an hour on really stupid bugs, but that's programming for yah!
