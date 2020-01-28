@@ -64,6 +64,9 @@ def read_list(reader):
 
 def read_atom(reader):
     token = reader.next()
+    if token[0] == "-":  # negative number
+        if token[1:].isnumeric():
+            return MalTypes.MalNum(int(token))
     if token.isnumeric():
         return MalTypes.MalNum(int(token))
     elif token == "true":

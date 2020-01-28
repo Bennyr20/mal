@@ -21,8 +21,14 @@ along with the optional command history part.
 
 _1/23/20_
 
-Start work on step1
+Start work on step 1
 
 step1 symbols work. Lists do not work at the moment.
 
 it is 3pm and Lists now work! I spent over an hour on really stupid bugs, but that's programming for yah!
+
+_1/27/20_
+
+working on step 2
+
+Got a simple calculator working! You can now pass through expressions
