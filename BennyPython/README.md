@@ -32,3 +32,9 @@ _1/27/20_
 working on step 2
 
 Got a simple calculator working! You can now pass through expressions
+
+Finished step 2
+
+_1/27/20_
+
+Starting work on step 2
