@@ -1,6 +1,3 @@
-import MalTypes
-
-
 class Env:
     def __init__(self, outer):
         self.outer = outer
@@ -15,13 +12,13 @@ class Env:
     def find(self, symbol):
         if symbol in self.data:
             return self.data  # not sure if to return the environment or data
-        if self.outer is not MalTypes.MalNil:  # if outer is not null
+        if self.outer is not None:  # if outer is not null
             return self.outer.find(symbol)
         else:
-            return MalTypes.MalNil()
+            return None
 
     def get(self, symbol):
         env = self.find(symbol)
-        if isinstance(env, MalTypes.MalNil):
-            return MalTypes.MalNil()
+        if env is None:
+            return None
         return env[symbol]

@@ -1,5 +1,4 @@
 import re
-import MalTypes
 
 
 class Reader:
@@ -59,23 +58,39 @@ def read_list(reader):
         retVal = read_form(reader)
         _list.append(retVal)
     reader.next()  # increment so it passes close paren
-    return MalTypes.MalList(_list)
+    return _list
 
 
 def read_atom(reader):
     token = reader.next()
     if token[0] == "-":  # negative number
         if token[1:].isnumeric():
-            return MalTypes.MalNum(int(token))
+            return int(token)
     if token.isnumeric():
-        return MalTypes.MalNum(int(token))
+        return int(token)
     elif token == "true":
-        return MalTypes.MalBool(True)
+        return True
     elif token == "false":
-        return MalTypes.MalBool(False)
+        return False
     elif token[0] == '"':
-        return MalTypes.MalString(token)
+        return '"' + token + '"'
     elif token == "nil":
-        return MalTypes.MalNil()
+        return None
+    else:  # it is a symbol
+        return token
+
+
+# return the type of the value
+def getType(val):
+    if val is None:
+        return "None"
+    if type(val) is list:
+        return "list"
+    if type(val) is int:
+        return "num"
+    elif type(val) is bool:
+        return "bool"
+    elif val[0] == '"':
+        return "string"
     else:
-        return MalTypes.MalSymbol(token)
+        return "symbol"
