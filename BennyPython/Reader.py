@@ -31,6 +31,13 @@ def tokenize(string):
     return tokens
 
 
+def formatString(string):
+    # string = string[1 : len(string) - 1]
+    string = string.replace("\\n", "\n").replace("\\\\", "\\").replace('\\"', '"')
+
+    return string
+
+
 def read_str(tokens):
     return read_form(Reader(tokenize(tokens)))
 
@@ -72,8 +79,8 @@ def read_atom(reader):
         return True
     elif token == "false":
         return False
-    elif token[0] == '"':
-        return '"' + token + '"'
+    elif token[0] == '"':  # make sure strings are in here
+        return formatString(token)
     elif token == "nil":
         return None
     else:  # it is a symbol

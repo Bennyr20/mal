@@ -37,4 +37,32 @@ Finished step 2
 
 _1/27/20_
 
-Starting work on step 2
+Starting work on step 3
+
+_2/4/20_
+
+It has been a bit since I updated the log, but I am now starting on step 4.
+
+I am finding that the MalTypes is getting in my way and is not being helpful, so I am going to spend some time removing that and making it easier in the future.
+
+Finished getting rid of MalTypes. I don't think this left any bugs
+
+_2/6/20_
+
+working on step 4.
+
+Just finished _do_, _if_, and _fn\*_. Just need to test the functionality then continue to core.py
+
+Spent about an hour debugging _fn\*_. Turns out I had one small typo.... UGH programming is very annoying sometimes
+
+Working on core
+
+After core, doing deferrable string step which involved the deferrable from step 1.
+
+Finished core. Now just need to test.
+
+_2/7/20_
+
+Working on string operations. Just about done with step 4. Also did the not function deferrable.
+
+Finished string deferrable. Moving on to step 5.
