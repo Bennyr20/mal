@@ -66,3 +66,11 @@ _2/7/20_
 Working on string operations. Just about done with step 4. Also did the not function deferrable.
 
 Finished string deferrable. Moving on to step 5.
+
+_2/11/20_
+
+Starting work on Tail Call optimization. Essentially turning EVAL function calls into iteration to save stack frames.
+
+_2/15/20_
+
+Finished Tail Call optimization. Not the hardest thing, but took a while because it was a pain to debug. Moving on to step 5.
