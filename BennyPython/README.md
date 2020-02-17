@@ -73,4 +73,10 @@ Starting work on Tail Call optimization. Essentially turning EVAL function calls
 
 _2/15/20_
 
-Finished Tail Call optimization. Not the hardest thing, but took a while because it was a pain to debug. Moving on to step 5.
+Finished Tail Call optimization. Not the hardest thing, but took a while because it was a pain to debug. Moving on to step 6.
+
+Finished step 6
+
+_2/16/20_
+
+Moving onto step 7: Quoting.

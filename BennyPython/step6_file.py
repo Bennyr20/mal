@@ -4,20 +4,17 @@ import env
 import core
 
 
-repl_env = env.Env(None, None, None)
-for key, value in core.ns.items():
-    repl_env.set(key, value)
-
-
 # evaluate abstract syntax tree, mal data type
 def eval_ast(ast, env_):
+    if callable(ast):  # if it's a function just return it
+        return ast
     _type = Reader.getType(ast)
     if _type == "symbol":
         return env_.get(ast)
     if _type == "list":  # call eval on all using list comprehension
         return [EVAL(element, env_) for element in ast]
     else:
-        return ast
+        return ast  # literal value
 
 
 def READ(arg):
@@ -32,6 +29,7 @@ def EVAL(ast, _env):
             return ast
         else:  # list, evaluate elements
             func = ast[0]
+
             if func == "def!":  # define a new symbol in environment
                 return _env.set(ast[1], EVAL(ast[2], _env))
 
@@ -93,6 +91,12 @@ def EVAL(ast, _env):
                     )  # calls the function with the rest of the list as function arguments
 
 
+repl_env = env.Env(None, None, None)
+for key, value in core.ns.items():
+    repl_env.set(key, value)
+repl_env.set("eval", lambda ast: EVAL(ast, repl_env))
+
+
 def PRINT(arg):
     return printer.print_str(arg, True)
 
@@ -107,7 +111,10 @@ def repl():
     commandHistory = []
     while True:
         try:
-            # rep("(def! not (fn* (a) (if a false true)))")  # define a not function
+            rep("(def! not (fn* (a) (if a false true)))")  # define a not function
+            rep(
+                '(def! load-file (fn* (f) (eval (read-string (str "(do " (slurp f) "\nnil)")))))'
+            )
             inp = input("user> ")
             commandHistory.append(inp)
             if inp == "history":  # if the user types history, show commands

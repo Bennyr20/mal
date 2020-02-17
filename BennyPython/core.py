@@ -1,4 +1,12 @@
 import printer
+import Reader
+
+
+# Atom class
+class Atom:
+    def __init__(self, val):
+        self.val = val
+
 
 # calls pr_str on each argument with print_readably set to true, joins the results with " ", prints the string to the screen and then returns nil.
 def funcPrn(*arg):
@@ -68,6 +76,28 @@ def funcIsEqual(arg1, arg2):
     return arg1 == arg2
 
 
+def funcReadString(arg):
+    return Reader.read_str(arg)
+
+
+def funcSlurp(file):
+    file = file[1:-1]
+    f = open(file)
+    string = f.read()
+    f.close()
+    return '"' + string + '"'
+
+
+def funcReset(atom, val):
+    atom.val = val
+    return val
+
+
+def funcSwap(atom, func, *params):
+    atom.val = func(atom.val, *params)
+    return atom.val
+
+
 # mapping of symbols to functions
 ns = {
     "+": lambda a, b: a + b,
@@ -87,4 +117,11 @@ ns = {
     "<=": lambda a, b: a <= b,
     ">": lambda a, b: a > b,
     ">=": lambda a, b: a >= b,
+    "read-string": funcReadString,
+    "slurp": funcSlurp,
+    "atom": lambda a: Atom(a),
+    "atom?": lambda a: isinstance(a, Atom),
+    "deref": lambda a: a.val,
+    "reset!": funcReset,
+    "swap!": funcSwap,
 }
