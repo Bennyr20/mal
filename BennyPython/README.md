@@ -80,3 +80,5 @@ Finished step 6
 _2/16/20_
 
 Moving onto step 7: Quoting.
+
+I am having annoying issues with parenthesis and strings. UGH.

@@ -1,6 +1,6 @@
 import printer
 import Reader
-
+from itertools import chain
 
 # Atom class
 class Atom:
@@ -98,6 +98,14 @@ def funcSwap(atom, func, *params):
     return atom.val
 
 
+def funcCons(arg1, list_):
+    return [arg1] + list_
+
+
+def funcConcat(*lists):
+    return list(chain(*lists))
+
+
 # mapping of symbols to functions
 ns = {
     "+": lambda a, b: a + b,
@@ -124,4 +132,6 @@ ns = {
     "deref": lambda a: a.val,
     "reset!": funcReset,
     "swap!": funcSwap,
+    "cons": funcCons,
+    "concat": funcConcat,
 }
